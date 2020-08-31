@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Minaret and Archaeological Remains of Jam",
+    "country": "Afghanistan",
+    "shortDescription": "The 65m-tall Minaret of Jam is a graceful, soaring structure, dating back to the 12th century. Covered in elaborate brickwork with a blue tile inscription at the top, it is noteworthy for the quality of its architecture and decoration, which represent the culmination of an architectural and artistic tradition in this region. Its impact is heightened by its dramatic setting, a deep river valley between towering mountains in the heart of the Ghur province.",
+    "longDescription": "",
+    "image": "https://whc.unesco.org/uploads/thumbs/site_0211_0008-750-0-20120918162151.jpg",
+    "dateOfInscription": "2002",
+    "latitude": 36.39656,
+    "longitude": 64.51606,
+    "type": "CULTURAL"
+  },
+  {
+    "title": "Cultural Landscape and Archaeological Remains of the Bamiyan Valley",
+    "country": "Afghanistan",
+    "shortDescription": "The cultural landscape and archaeological remains of the Bamiyan Valley represent the artistic and religious developments which from the 1st to the 13th centuries characterized ancient Bakhtria, integrating various cultural influences into the Gandhara school of Buddhist art. The area contains numerous Buddhist monastic ensembles and sanctuaries, as well as fortified edifices from the Islamic period. The site is also testimony to the tragic destruction by the Taliban of the two standing Buddha statues, which shook the world in March 2001.",
+    "longDescription": "",
+    "image": "https://whc.unesco.org/uploads/thumbs/site_0208_0002-750-0-20170802154248.jpg",
+    "dateOfInscription": "2003",
+    "latitude": 34.84694,
+    "longitude": 67.82525,
+    "type": "CULTURAL"
+  },
+  {
+    "title": "Natural and Cultural Heritage of the Ohrid region",
+    "country": "Albania & North Macedonia",
+    "shortDescription": "A superlative natural phenomenon, Lake Ohrid provides a refuge for numerous endemic species of freshwater fauna and flora dating from the Tertiary period. Situated on the shores of the lake, the town of Ohrid is one of the oldest human settlements in Europe. Built mainly between the 7th and 19th centuries, it has the oldest Slav monastery (St Pantelejmon) and more than 800 Byzantine-style icons dating from the 11th to the end of the 14th century. In the shallow waters near the shores of the lake, three sites testify to the presence of prehistoric pile dwellings, and the small Lin Peninsula is the site of the remains of an Early Christian church founded in the middle of the 6th century.",
+    "longDescription": "",
+    "image": "https://whc.unesco.org/uploads/thumbs/site_0099_0001-750-0-20190321115246.jpg",
+    "dateOfInscription": "1979",
+    "latitude": 40.99183,
+    "longitude": 20.70417,
+    "type": "MIXED"
+  },
+  {
+    "title": "Butrint",
+    "country": "Albania",
+    "shortDescription": "Inhabited since prehistoric times, Butrint has been the site of a Greek colony, a Roman city and a bishopric. Following a period of prosperity under Byzantine administration, then a brief occupation by the Venetians, the city was abandoned in the late Middle Ages after marshes formed in the area. The present archaeological site is a repository of ruins representing each period in the city’s development.",
+    "longDescription": "",
+    "image": "https://whc.unesco.org/uploads/thumbs/site_0570_0005-750-0-20151104150902.jpg",
+    "dateOfInscription": "1992",
+    "latitude": 39.75111,
+    "longitude": 20.02611,
+    "type": "CULTURAL"
+  },
+  {
+    "title": "Historic Centre of Sighişoara",
+    "country": "Romania",
+    "shortDescription": "Founded by German craftsmen and merchants known as the Saxons of Transylvania, Sighişoara is a fine example of a small, fortified medieval town which played an important strategic and commercial role on the fringes of central Europe for several centuries.",
+    "longDescription": "",
+    "image": "https://whc.unesco.org/uploads/thumbs/site_0902_0002-750-0-20130801163929.jpg",
+    "dateOfInscription": "1999",
+    "latitude": 46.21778,
+    "longitude": 24.79222,
+    "type": "CULTURAL"
+  }
+]

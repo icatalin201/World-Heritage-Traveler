@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/fragment_location">
+
+    <fragment
+        android:id="@+id/fragment_places"
+        android:name="com.app.worldheritagetraveler.ui.places.PlacesFragment"
+        android:label="@string/fragment_places_title"
+        tools:layout="@layout/fragment_places" />
+
+    <fragment
+        android:id="@+id/fragment_location"
+        android:name="com.app.worldheritagetraveler.ui.location.LocationFragment"
+        android:label="@string/fragment_location_title"
+        tools:layout="@layout/fragment_location" />
+
+    <fragment
+        android:id="@+id/fragment_map"
+        android:name="com.app.worldheritagetraveler.ui.map.MapFragment"
+        android:label="@string/fragment_map_title"
+        tools:layout="@layout/fragment_map" />
+
+    <activity
+        android:id="@+id/activity_about"
+        android:name="com.app.worldheritagetraveler.ui.about.AboutActivity"
+        android:label="@string/about"
+        tools:layout="@layout/activity_about" />
+
+    <activity
+        android:id="@+id/activity_settings"
+        android:name="com.app.worldheritagetraveler.ui.settings.SettingsActivity"
+        android:label="@string/settings"
+        tools:layout="@layout/activity_settings" />
+
+</navigation>

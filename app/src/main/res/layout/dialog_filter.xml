@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/filter_favorite_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="?dialogPreferredPadding"
+            android:paddingTop="8dp"
+            android:paddingEnd="?dialogPreferredPadding"
+            android:paddingBottom="8dp"
+            android:text="@string/favorite_places"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/filter_visited_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingStart="?dialogPreferredPadding"
+            android:paddingTop="8dp"
+            android:paddingEnd="?dialogPreferredPadding"
+            android:paddingBottom="8dp"
+            android:text="@string/visited_places"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/filter_favorite_switch" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/fragment_places"
+        android:icon="@drawable/ic_baseline_place_24"
+        android:title="@string/fragment_places_title"
+        app:showAsAction="always|withText"
+        tools:ignore="AlwaysShowAction" />
+
+    <item
+        android:id="@+id/fragment_location"
+        android:icon="@drawable/ic_baseline_my_location_24"
+        android:title="@string/fragment_location_title"
+        app:showAsAction="always|withText" />
+
+    <item
+        android:id="@+id/fragment_map"
+        android:icon="@drawable/ic_baseline_map_24"
+        android:title="@string/fragment_map_title"
+        app:showAsAction="always|withText" />
+
+</menu>
