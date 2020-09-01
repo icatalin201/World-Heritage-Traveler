@@ -16,11 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.settings.SettingsActivity"
-            android:label="@string/settings"
             android:parentActivityName=".ui.main.MainActivity" />
-        <activity
-            android:name=".ui.about.AboutActivity"
-            android:label="@string/about" />
+        <activity android:name=".ui.about.AboutActivity" />
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

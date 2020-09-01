@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">World Heritage Traveler</string>
+    <string name="app_disclaimer" translatable="false">
+        <![CDATA[
+            All the data is coming from UNESCO World Heritage Center.\n
+            Copyright © UNESCO World Heritage Centre.\nAll Rights Reserved.
+        ]]>
+    </string>
     <string name="fragment_places_title">All places</string>
     <string name="fragment_favorites_title">My favorites</string>
     <string name="fragment_location_title">Places near me</string>
@@ -9,6 +15,8 @@
     <string name="place_removed_from_favorites">Place removed from favorites</string>
     <string name="place_added_to_visited">Place added to visited list</string>
     <string name="place_removed_from_visited">Place removed from visited list</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="close">Close</string>
     <string name="filter">Filter</string>
     <string name="sort">Sort by</string>
     <string name="apply">Apply</string>
@@ -25,7 +33,7 @@
     <string name="visited">Visited</string>
     <string name="language">Language</string>
     <string name="language_english">English</string>
-    <string name="language_default">System default</string>
+    <string name="language_default">Default</string>
     <string name="language_french">French</string>
     <string name="language_spanish">Spanish</string>
     <string name="language_arabic">Arabic</string>

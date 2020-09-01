@@ -26,10 +26,15 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     val entryValue = preference.entryValues[index]
                     preference.setSummary(entry)
                     if (preference.getKey() == LANGUAGE_VALUE) {
-                        LanguageTool.updateLocale(
-                            requireContext(),
-                            Language.valueOf(entryValue.toString())
-                        )
+                        val language = LanguageTool.getLanguage(requireContext())
+                        val newLanguage = Language.valueOf(entryValue.toString())
+                        if (language != newLanguage) {
+                            LanguageTool.updateLocale(
+                                requireContext(),
+                                Language.valueOf(entryValue.toString())
+                            )
+                            requireActivity().recreate()
+                        }
                     }
                 }
             } else {

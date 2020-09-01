@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.observe
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
