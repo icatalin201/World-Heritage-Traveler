@@ -10,27 +10,29 @@ Created by Catalin on 8/27/2020
  **/
 @Entity(tableName = "places")
 data class Place(
-    @PrimaryKey
-    @ColumnInfo(name = "title")
-    val title: String,
-    @ColumnInfo(name = "short_description")
-    val shortDescription: String,
-    @ColumnInfo(name = "long_description")
-    val longDescription: String,
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
+    val id: Int,
     @ColumnInfo(name = "image")
     val image: String,
-    @ColumnInfo(name = "date_of_inscription")
-    val dateOfInscription: String,
+    @ColumnInfo(name = "year")
+    val year: Int,
     @ColumnInfo(name = "country")
     val country: String,
     @ColumnInfo(name = "latitude")
     val latitude: Double,
     @ColumnInfo(name = "longitude")
     val longitude: Double,
-    @ColumnInfo(name = "site_type")
-    val type: PlaceType,
     @ColumnInfo(name = "favorite")
     val favorite: Boolean,
     @ColumnInfo(name = "visited")
-    val visited: Boolean
-)
+    val visited: Boolean,
+    @ColumnInfo(name = "language_content")
+    val languageContent: List<PlaceLanguage>
+) {
+    fun findPlaceLanguage(language: Language): PlaceLanguage? {
+        return languageContent.firstOrNull { placeLanguage ->
+            placeLanguage.language == language.name
+        }
+    }
+}

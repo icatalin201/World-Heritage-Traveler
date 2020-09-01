@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">World Heritage Traveler</string>
+    <string name="fragment_favorites_title">Mis favoritos</string>
+    <string name="fragment_places_title">Todos los lugares</string>
+    <string name="fragment_location_title">Lugares cerca de mí</string>
+    <string name="fragment_map_title">Vista de mapa</string>
+    <string name="fragment_visited_title">Lugares visitados</string>
+    <string name="place_added_to_favorites">Lugar añadido a favoritos</string>
+    <string name="place_removed_from_favorites">Lugar eliminado de favoritos</string>
+    <string name="place_added_to_visited">Lugar añadido a la lista visitada</string>
+    <string name="place_removed_from_visited">Lugar eliminado de la lista visitada</string>
+    <string name="filter">Filtro</string>
+    <string name="sort">Ordenar por</string>
+    <string name="apply">Aplicar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="settings">Configuración</string>
+    <string name="about">Acerca de</string>
+    <string name="default_sort">Predeterminado</string>
+    <string name="language_default">Predeterminado</string>
+    <string name="year_sort">Año</string>
+    <string name="country_sort">País</string>
+    <string name="distance">Distancia</string>
+    <string name="favorite_places">Lugares favoritos</string>
+    <string name="visited_places">Lugares visitados</string>
+    <string name="favorite">Favorito</string>
+    <string name="visited">Visitado</string>
+    <string name="language">Idioma</string>
+    <string name="language_english">Inglés</string>
+    <string name="language_french">Francés</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_arabic">Árabe</string>
+    <string name="language_chinese">Chino</string>
+    <string name="language_japanese">Japonés</string>
+    <string name="language_dutch">Holandés</string>
+</resources>

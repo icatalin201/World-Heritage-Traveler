@@ -29,23 +29,23 @@ class PlaceRepository(private val placeDao: PlaceDao) {
     val places: LiveData<List<Place>> = placeDao.getAll()
 
     suspend fun toggleFavorite(place: Place) {
-        toggleFavorite(place.title)
+        toggleFavorite(place.id)
     }
 
     suspend fun toggleVisited(place: Place) {
-        toggleVisited(place.title)
+        toggleVisited(place.id)
     }
 
-    suspend fun toggleFavorite(title: String) {
-        placeDao.toggleFavorite(title)
+    suspend fun toggleFavorite(id: Int) {
+        placeDao.toggleFavorite(id)
     }
 
-    suspend fun toggleVisited(title: String) {
-        placeDao.toggleVisited(title)
+    suspend fun toggleVisited(id: Int) {
+        placeDao.toggleVisited(id)
     }
 
-    fun getByTitle(title: String): LiveData<Place> {
-        return placeDao.getByTitle(title)
+    fun getById(id: Int): LiveData<Place> {
+        return placeDao.getById(id)
     }
 
     fun getAll(filterOptions: FilterOptions, sortOptions: SortOptions): LiveData<List<Place>> {

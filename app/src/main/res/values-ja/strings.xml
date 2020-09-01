@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">World Heritage Traveler</string>
+    <string name="fragment_favorites_title">お気に入り</string>
+    <string name="fragment_places_title">すべての場所</string>
+    <string name="fragment_location_title">私の近くの場所</string>
+    <string name="fragment_map_title">マップビュー</string>
+    <string name="fragment_visited_title">訪問先</string>
+    <string name="place_added_to_favorites">お気に入りに追加された場所</string>
+    <string name="place_removed_from_favorites">お気に入りから削除された場所</string>
+    <string name="place_added_to_visited">訪問リストに追加された場所</string>
+    <string name="place_removed_from_visited">訪問したリストから削除された場所</string>
+    <string name="filter">フィルター</string>
+    <string name="sort">並べ替え順</string>
+    <string name="apply">適用</string>
+    <string name="cancel">キャンセル</string>
+    <string name="settings">設定</string>
+    <string name="about">" に関しては"</string>
+    <string name="default_sort">既定</string>
+    <string name="language_default">既定</string>
+    <string name="year_sort">年</string>
+    <string name="country_sort">国</string>
+    <string name="distance">距離</string>
+    <string name="favorite_places">お気に入りの場所</string>
+    <string name="visited_places">訪問先</string>
+    <string name="favorite">お気に入り</string>
+    <string name="visited">訪問</string>
+    <string name="language">言語</string>
+    <string name="language_english">英語</string>
+    <string name="language_french">フランス語</string>
+    <string name="language_spanish">スペイン語</string>
+    <string name="language_arabic">アラビア語</string>
+    <string name="language_chinese">中国語</string>
+    <string name="language_japanese">日本語</string>
+    <string name="language_dutch">オランダ語</string>
+</resources>

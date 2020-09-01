@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.Place
@@ -54,9 +55,17 @@ class LocationFragment : Fragment(), PlaceLocationListener {
         mFactory = Injection.provideViewModelFactory(requireContext())
         mAdapter = PlacesLocationAdapter(this, requireContext())
         mBinding.locationRecyclerView.adapter = mAdapter
-        mBinding.locationRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        mBinding.locationRecyclerView.adapter = mAdapter
+        val isTablet = requireContext().resources.getBoolean(R.bool.is_tablet)
+        if (isTablet) {
+            mBinding.locationRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        } else {
+            mBinding.locationRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        }
         setupLocationListener()
-        mViewModel.placeList.observe(viewLifecycleOwner, { places -> mAdapter.setSites(places) })
+        mViewModel.placeList.observe(viewLifecycleOwner, { places ->
+            mAdapter.setSites(places)
+        })
         return mBinding.root
     }
 
@@ -115,7 +124,7 @@ class LocationFragment : Fragment(), PlaceLocationListener {
 
     override fun open(place: Place) {
         val intent = Intent(requireContext(), PlaceActivity::class.java)
-        intent.putExtra(PlaceActivity.PLACE_TITLE, place.title)
+        intent.putExtra(PlaceActivity.PLACE, place.id)
         startActivity(intent)
     }
 

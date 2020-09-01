@@ -52,8 +52,16 @@ class LocationViewModel(private val placeRepository: PlaceRepository) : ViewMode
                 longitude2
             )
         ) { places ->
-            placeList.value = places
+            placeList.value =
+                places.sortedBy { place -> getKilometersFromCoordinates(place) }
         }
     }
 
+    private fun getKilometersFromCoordinates(place: Place): Double {
+        var x = (myPosition!!.latitude - place.latitude) * 110.574
+        if (x < 0) {
+            x *= -1
+        }
+        return x
+    }
 }

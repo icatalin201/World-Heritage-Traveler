@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">World Heritage Traveler</string>
+    <string name="fragment_places_title">جميع الأماكن</string>
+    <string name="fragment_favorites_title">مفضلتي</string>
+    <string name="fragment_location_title">أماكن بالقرب مني</string>
+    <string name="fragment_map_title">عرض الخريطة</string>
+    <string name="fragment_visited_title">الأماكن التي تمت زيارتها</string>
+    <string name="place_added_to_favorites">تمت إضافة مكان إلى المفضلة</string>
+    <string name="place_removed_from_favorites">تمت إزالة المكان من المفضلة</string>
+    <string name="place_added_to_visited">تمت إضافة المكان إلى القائمة التي تمت زيارتها</string>
+    <string name="place_removed_from_visited">تمت إزالة المكان من القائمة التي تمت زيارتها</string>
+    <string name="filter">منقي</string>
+    <string name="sort">صنف حسب</string>
+    <string name="apply">تطبيق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="settings">الإعدادات</string>
+    <string name="about">حول</string>
+    <string name="default_sort">إفتراضي</string>
+    <string name="language_default">إفتراضي</string>
+    <string name="year_sort">عام</string>
+    <string name="country_sort">بلد</string>
+    <string name="distance">مسافة</string>
+    <string name="favorite_places">الأماكن المفضلة</string>
+    <string name="visited_places">الأماكن التي تمت زيارتها</string>
+    <string name="favorite">مفضل</string>
+    <string name="visited">تمت زيارتها</string>
+    <string name="language">لغة</string>
+    <string name="language_english">الإنجليزية</string>
+    <string name="language_french">فرنسي</string>
+    <string name="language_spanish">الأسبانية</string>
+    <string name="language_arabic">عربى</string>
+    <string name="language_chinese">صينى</string>
+    <string name="language_japanese">اليابانية</string>
+    <string name="language_dutch">هولندي</string>
+</resources>

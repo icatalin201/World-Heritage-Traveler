@@ -15,8 +15,8 @@ interface PlaceDao {
     @Query("select * from places")
     fun getAll(): LiveData<List<Place>>
 
-    @Query("select * from places where title = :title")
-    fun getByTitle(title: String): LiveData<Place>
+    @Query("select * from places where id = :id")
+    fun getById(id: Int): LiveData<Place>
 
     @RawQuery(observedEntities = [Place::class])
     fun getAll(query: SupportSQLiteQuery): LiveData<List<Place>>
@@ -35,11 +35,11 @@ interface PlaceDao {
         longitude2: Double
     ): LiveData<List<Place>>
 
-    @Query("update places set favorite = NOT favorite where title = :title")
-    suspend fun toggleFavorite(title: String)
+    @Query("update places set favorite = NOT favorite where id = :id")
+    suspend fun toggleFavorite(id: Int)
 
-    @Query("update places set visited = NOT visited where title = :title")
-    suspend fun toggleVisited(title: String)
+    @Query("update places set visited = NOT visited where id = :id")
+    suspend fun toggleVisited(id: Int)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(place: Place)

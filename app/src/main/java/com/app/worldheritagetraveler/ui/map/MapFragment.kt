@@ -9,9 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.app.worldheritagetraveler.R
+import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.databinding.FragmentMapBinding
 import com.app.worldheritagetraveler.tools.Injection
+import com.app.worldheritagetraveler.tools.LanguageTool
 import com.app.worldheritagetraveler.tools.ViewModelFactory
 import com.app.worldheritagetraveler.ui.place.PlaceActivity
 import com.google.android.gms.maps.GoogleMap
@@ -66,16 +68,20 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListe
 
     override fun onInfoWindowClick(marker: Marker) {
         val intent = Intent(requireContext(), PlaceActivity::class.java)
-        intent.putExtra(PlaceActivity.PLACE_TITLE, marker.title)
+        intent.putExtra(PlaceActivity.PLACE, marker.tag.toString().toInt())
         startActivity(intent)
     }
 
     private fun setupMarkers(googleMap: GoogleMap, placesList: List<Place>) {
         placesList.listIterator().forEach { place ->
+            var language = LanguageTool.getLanguage(requireContext())
+            if (language == Language.DEFAULT) {
+                language = Language.EN
+            }
             val marker = MarkerOptions()
                 .position(LatLng(place.latitude, place.longitude))
-                .title(place.title)
-            googleMap.addMarker(marker)
+                .title(place.findPlaceLanguage(language)?.title)
+            googleMap.addMarker(marker).tag = place.id
         }
 
     }

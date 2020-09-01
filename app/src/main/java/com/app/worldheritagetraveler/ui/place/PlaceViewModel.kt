@@ -17,19 +17,19 @@ class PlaceViewModel(private val placeRepository: PlaceRepository) : ViewModel()
 
     val place: MediatorLiveData<Place> = MediatorLiveData()
 
-    fun getByTitle(title: String) {
-        place.addSource(placeRepository.getByTitle(title)) { place -> this.place.value = place }
+    fun getById(id: Int) {
+        place.addSource(placeRepository.getById(id)) { place -> this.place.value = place }
     }
 
-    fun toggleFavorite(title: String) {
+    fun toggleFavorite(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            placeRepository.toggleFavorite(title)
+            placeRepository.toggleFavorite(id)
         }
     }
 
-    fun toggleVisited(title: String) {
+    fun toggleVisited(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            placeRepository.toggleVisited(title)
+            placeRepository.toggleVisited(id)
         }
     }
 

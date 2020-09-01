@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.FilterOptions
@@ -41,10 +42,17 @@ class PlacesFragment : Fragment(), PlaceActionListener {
         mFactory = Injection.provideViewModelFactory(requireContext())
         mAdapter = PlacesAdapter(this, requireContext())
         mBinding.placesRecyclerView.adapter = mAdapter
-        mBinding.placesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val isTablet = requireContext().resources.getBoolean(R.bool.is_tablet)
+        if (isTablet) {
+            mBinding.placesRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+        } else {
+            mBinding.placesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        }
         mViewModel.mPlaceList.observe(
             viewLifecycleOwner,
-            { sites -> mAdapter.setSites(sites) })
+            { sites ->
+                mAdapter.setSites(sites)
+            })
         return mBinding.root
     }
 
@@ -84,7 +92,7 @@ class PlacesFragment : Fragment(), PlaceActionListener {
 
     override fun open(place: Place) {
         val intent = Intent(requireContext(), PlaceActivity::class.java)
-        intent.putExtra(PlaceActivity.PLACE_TITLE, place.title)
+        intent.putExtra(PlaceActivity.PLACE, place.id)
         startActivity(intent)
     }
 

@@ -9,6 +9,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.databinding.ActivityMainBinding
+import com.app.worldheritagetraveler.tools.LanguageTool
 
 /**
 World Heritage Traveler
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        LanguageTool.refreshLanguage(this)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setSupportActionBar(mBinding.mainToolbar)
         setupNavigation()

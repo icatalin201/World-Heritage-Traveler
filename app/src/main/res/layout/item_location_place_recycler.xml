@@ -9,6 +9,10 @@
             type="com.app.worldheritagetraveler.ui.location.PlaceLocationListener" />
 
         <variable
+            name="placeLanguage"
+            type="com.app.worldheritagetraveler.data.models.PlaceLanguage" />
+
+        <variable
             name="place"
             type="com.app.worldheritagetraveler.data.models.Place" />
     </data>
@@ -20,7 +24,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="@{() -> listener.open(place)}">
+        android:onClick="@{() -> listener.open(place)}"
+        app:cardElevation="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -50,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="@{place.title}"
+                android:text="@{placeLanguage.title}"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"

@@ -7,9 +7,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.app.worldheritagetraveler.R
+import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.databinding.ActivityPlaceBinding
 import com.app.worldheritagetraveler.tools.Injection
+import com.app.worldheritagetraveler.tools.LanguageTool
 import com.app.worldheritagetraveler.tools.ViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -30,13 +32,13 @@ Created by catalin.matache on 8/29/2020
 class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
 
     companion object {
-        const val PLACE_TITLE = "Place.Title"
+        const val PLACE = "Place"
     }
 
     private lateinit var mMap: GoogleMap
     private lateinit var mFactory: ViewModelFactory
     private lateinit var mBinding: ActivityPlaceBinding
-    private lateinit var mPlaceTitle: String
+    private var mPlaceId: Int = 0
     private var mIsFavorite = false
     private var mIsVisited = false
     private val mViewModel: PlaceViewModel by viewModels { mFactory }
@@ -56,11 +58,11 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
             })
         title = ""
         mFactory = Injection.provideViewModelFactory(this)
-        intent.getStringExtra(PLACE_TITLE)?.let { mPlaceTitle = it }
+        mPlaceId = intent.getIntExtra(PLACE, 0)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.place_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        mViewModel.getByTitle(mPlaceTitle)
+        mViewModel.getById(mPlaceId)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -84,14 +86,14 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
                 false -> R.string.place_added_to_favorites
             }
             Snackbar.make(mBinding.placeCoordinatorLayout, message, Snackbar.LENGTH_SHORT).show()
-            mViewModel.toggleFavorite(mPlaceTitle)
+            mViewModel.toggleFavorite(mPlaceId)
         } else if (item.itemId == R.id.visited) {
             val message = when (mIsVisited) {
                 true -> R.string.place_removed_from_visited
                 false -> R.string.place_added_to_visited
             }
             Snackbar.make(mBinding.placeCoordinatorLayout, message, Snackbar.LENGTH_SHORT).show()
-            mViewModel.toggleVisited(mPlaceTitle)
+            mViewModel.toggleVisited(mPlaceId)
         }
         invalidateOptionsMenu()
         return super.onOptionsItemSelected(item)
@@ -116,8 +118,15 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
             .fit()
             .into(mBinding.placeImageCover)
         mBinding.place = place
+        var language = LanguageTool.getLanguage(this)
+        if (language == Language.DEFAULT) {
+            language = Language.EN
+        }
+        mBinding.placeLanguage = place.findPlaceLanguage(language)
         val latLng = LatLng(place.latitude, place.longitude)
-        mMap.addMarker(MarkerOptions().position(latLng).title(place.title))
+        mMap.addMarker(
+            MarkerOptions().position(latLng).title(place.findPlaceLanguage(Language.EN)?.title)
+        )
         val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 7.0f)
         mMap.animateCamera(cameraUpdate)
         mIsFavorite = place.favorite

@@ -6,13 +6,13 @@ Created by Catalin on 8/30/2020
  **/
 enum class SortOptions {
     DEFAULT,
-    TITLE,
+    YEAR,
     COUNTRY;
 
     fun getValue(): String {
         return when (this) {
-            TITLE, COUNTRY -> "order by %s asc".format(this.name)
-            DEFAULT -> ""
+            YEAR, COUNTRY -> "order by %s asc".format(this.name)
+            DEFAULT -> "order by id asc"
         }
     }
 
@@ -20,7 +20,7 @@ enum class SortOptions {
         fun ofPosition(position: Int): SortOptions {
             return when (position) {
                 0 -> DEFAULT
-                1 -> TITLE
+                1 -> YEAR
                 2 -> COUNTRY
                 else -> DEFAULT
             }

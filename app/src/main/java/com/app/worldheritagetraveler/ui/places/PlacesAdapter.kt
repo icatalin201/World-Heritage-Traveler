@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.app.worldheritagetraveler.R
+import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.databinding.ItemPlaceRecyclerBinding
+import com.app.worldheritagetraveler.tools.LanguageTool
 import com.squareup.picasso.Picasso
 
 /**
@@ -28,22 +30,36 @@ class PlacesAdapter(
             val place = mPlaceList[position]
             binding.place = place
             binding.listener = listener
+            var language = LanguageTool.getLanguage(context)
+            if (language == Language.DEFAULT) {
+                language = Language.EN
+            }
+            binding.placeLanguage = place.findPlaceLanguage(language)
             val layoutParams = binding.itemPlaceCard.layoutParams as RecyclerView.LayoutParams
-            if (position == 0) {
-                layoutParams.topMargin =
-                    TypedValue.applyDimension(
-                        TypedValue.COMPLEX_UNIT_DIP,
-                        8F,
-                        context.resources.displayMetrics
-                    ).toInt()
+            val isTablet = context.resources.getBoolean(R.bool.is_tablet)
+            if (position == 0 || (position == 1 && isTablet)) {
+                layoutParams.topMargin = applyDimension()
             } else {
                 layoutParams.topMargin = 0
+            }
+            if (isTablet && position % 2 == 0) {
+                layoutParams.marginEnd = 0
+            } else {
+                layoutParams.marginEnd = applyDimension()
             }
             binding.itemPlaceCard.layoutParams = layoutParams
             Picasso.get().load(place.image)
                 .centerCrop()
                 .fit()
                 .into(binding.itemPlaceImage)
+        }
+
+        private fun applyDimension(): Int {
+            return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                8F,
+                context.resources.displayMetrics
+            ).toInt()
         }
 
     }

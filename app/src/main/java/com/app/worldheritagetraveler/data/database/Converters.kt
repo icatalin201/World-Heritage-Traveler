@@ -1,7 +1,8 @@
 package com.app.worldheritagetraveler.data.database
 
 import androidx.room.TypeConverter
-import com.app.worldheritagetraveler.data.models.PlaceType
+import com.app.worldheritagetraveler.data.models.PlaceLanguage
+import com.google.gson.Gson
 
 /**
 World Heritage Traveler
@@ -9,16 +10,18 @@ Created by Catalin on 8/27/2020
  **/
 object Converters {
 
+    private val gson = Gson()
+
     @JvmStatic
     @TypeConverter
-    fun fromSiteType(placeType: PlaceType): String {
-        return placeType.name
+    fun fromListOfPlaceLanguage(placeLanguageList: List<PlaceLanguage>): String {
+        return gson.toJson(placeLanguageList)
     }
 
     @JvmStatic
     @TypeConverter
-    fun fromSiteTypeString(siteType: String): PlaceType {
-        return PlaceType.valueOf(siteType)
+    fun toListOfPlaceLanguage(placeLanguageList: String): List<PlaceLanguage> {
+        return gson.fromJson(placeLanguageList, Array<PlaceLanguage>::class.java).toList()
     }
 
 }

@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="placeLanguage"
+            type="com.app.worldheritagetraveler.data.models.PlaceLanguage" />
+
+        <variable
             name="place"
             type="com.app.worldheritagetraveler.data.models.Place" />
     </data>
@@ -67,7 +71,7 @@
                         android:layout_height="0dp"
                         android:gravity="center"
                         android:padding="16dp"
-                        android:text="@{place.title}"
+                        android:text="@{placeLanguage.title}"
                         android:textSize="26sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -96,12 +100,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     app:cardBackgroundColor="@color/colorPrimaryDark"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -120,11 +124,20 @@
                             android:textSize="18sp" />
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/place_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@{String.valueOf(place.year)}"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/place_short_description"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="@{place.shortDescription}"
+                            android:text="@{placeLanguage.description}"
                             android:textColor="@android:color/white" />
 
                     </LinearLayout>
@@ -135,8 +148,7 @@
                     android:id="@+id/place_map"
                     android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="8dp" />
+                    android:layout_height="350dp" />
 
             </LinearLayout>
 
