@@ -84,7 +84,7 @@ class PlacesAdapter(
         return mPlaceList.size
     }
 
-    internal fun setSites(places: List<Place>) {
+    internal fun setPlaces(places: List<Place>) {
         this.mPlaceList = places
         notifyDataSetChanged()
     }

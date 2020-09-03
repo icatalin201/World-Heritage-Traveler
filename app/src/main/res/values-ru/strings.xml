@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">World Heritage Traveler</string>
+    <string name="fragment_places_title">Все места</string>
+    <string name="fragment_favorites_title">Мои любимые</string>
+    <string name="fragment_location_title">Места рядом со мной</string>
+    <string name="fragment_map_title">Просмотр карты</string>
+    <string name="fragment_visited_title">Посещенные места</string>
+    <string name="place_added_to_favorites">Место добавлено в избранное</string>
+    <string name="place_removed_from_favorites">Место удалено из избранного</string>
+    <string name="place_added_to_visited">Место добавлено в список посещенных</string>
+    <string name="place_removed_from_visited">Место удалено из списка посещений</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="close">близко</string>
+    <string name="filter">Фильтр</string>
+    <string name="sort">Сортировать по</string>
+    <string name="apply">Подать заявление</string>
+    <string name="cancel">Отмена</string>
+    <string name="settings">Настройки</string>
+    <string name="about">Около</string>
+    <string name="default_sort">По умолчанию</string>
+    <string name="language_default">По умолчанию</string>
+    <string name="year_sort">Год</string>
+    <string name="country_sort">Страна</string>
+    <string name="distance">Расстояние</string>
+    <string name="favorite_places">Любимые места</string>
+    <string name="visited_places">Посещенные места</string>
+    <string name="favorite">Любимый</string>
+    <string name="visited">Посетил</string>
+    <string name="language">Язык</string>
+    <string name="language_english">английский</string>
+    <string name="language_french">французский язык</string>
+    <string name="language_spanish">испанский</string>
+    <string name="language_arabic">арабский</string>
+    <string name="language_chinese">китайский язык</string>
+    <string name="language_japanese">японский язык</string>
+    <string name="language_dutch">нидерландский язык</string>
+    <string name="language_russian">русский</string>
+</resources>

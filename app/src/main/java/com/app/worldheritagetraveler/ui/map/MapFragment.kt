@@ -59,9 +59,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         googleMap.setOnMarkerClickListener(mClusterManager)
         mClusterManager.setOnClusterItemInfoWindowClickListener { onInfoWindowClick(it) }
         googleMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
-        mViewModel.placesList.observe(
-            viewLifecycleOwner,
-            { placesList -> setupMarkers(placesList) })
+        mViewModel.placesList.observe(viewLifecycleOwner) { setupMarkers(it) }
     }
 
     private fun onInfoWindowClick(placeMarker: PlaceMarker) {

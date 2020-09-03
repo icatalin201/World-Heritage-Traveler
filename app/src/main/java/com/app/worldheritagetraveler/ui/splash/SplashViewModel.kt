@@ -31,14 +31,16 @@ class SplashViewModel(
     }
 
     fun startImporting() {
-        isFirstTime.addSource(workManager.getWorkInfosByTagLiveData(IMPORT_DATA_TAG)) { workInfoList ->
+        isFirstTime.addSource(
+            workManager.getWorkInfosByTagLiveData(IMPORT_DATA_TAG)
+        ) { workInfoList ->
             if (workInfoList.size > 0) {
                 val workInfo: WorkInfo = workInfoList[0]
                 val finished = workInfo.state.isFinished
                 if (finished) {
                     mPreferences.edit().putBoolean(IS_FIRST_TIME, false).apply()
+                    isFirstTime.value = false
                 }
-                isFirstTime.value = false
             }
         }
         val request = OneTimeWorkRequest

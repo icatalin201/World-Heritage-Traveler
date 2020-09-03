@@ -18,7 +18,8 @@ class WorldHeritageTraveler : Application() {
     }
 
     private fun setupPicasso() {
-        val okHttpClient: OkHttpClient = OkHttpClient.Builder().ignoreAllSSLErrors().build()
+        val okHttpClient: OkHttpClient = OkHttpClient.Builder()
+            .ignoreAllSSLErrors().build()
         val okHttpDownloader = OkHttp3Downloader(okHttpClient)
         val picasso = Picasso.Builder(this)
             .downloader(okHttpDownloader)

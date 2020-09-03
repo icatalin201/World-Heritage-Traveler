@@ -50,9 +50,7 @@ class PlacesFragment : Fragment(), PlaceActionListener {
         }
         mViewModel.mPlaceList.observe(
             viewLifecycleOwner,
-            { sites ->
-                mAdapter.setSites(sites)
-            })
+            { mAdapter.setPlaces(it) })
         return mBinding.root
     }
 

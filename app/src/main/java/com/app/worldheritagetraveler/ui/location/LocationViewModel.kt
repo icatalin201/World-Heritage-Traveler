@@ -51,9 +51,11 @@ class LocationViewModel(private val placeRepository: PlaceRepository) : ViewMode
                 longitude1,
                 longitude2
             )
-        ) { places ->
+        ) {
             placeList.value =
-                places.sortedBy { place -> getKilometersFromCoordinates(place) }
+                it.sortedBy { place ->
+                    getKilometersFromCoordinates(place)
+                }
         }
     }
 

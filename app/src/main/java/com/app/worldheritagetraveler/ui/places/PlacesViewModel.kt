@@ -33,8 +33,9 @@ class PlacesViewModel(private val placeRepository: PlaceRepository) : ViewModel(
     }
 
     private fun triggerQuery() {
-        mPlaceList.addSource(placeRepository.getAll(mFilterOptions, mSortOptions)) { places ->
-            mPlaceList.value = places
-        }
+        mPlaceList.addSource(
+            placeRepository.getAll(mFilterOptions, mSortOptions)
+        )
+        { mPlaceList.value = it }
     }
 }

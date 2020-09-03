@@ -63,9 +63,7 @@ class LocationFragment : Fragment(), PlaceLocationListener {
             mBinding.locationRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
         setupLocationListener()
-        mViewModel.placeList.observe(viewLifecycleOwner, { places ->
-            mAdapter.setSites(places)
-        })
+        mViewModel.placeList.observe(viewLifecycleOwner, { mAdapter.setPlaces(it) })
         return mBinding.root
     }
 
