@@ -30,8 +30,8 @@ data class Place(
     @ColumnInfo(name = "language_content")
     val languageContent: List<PlaceLanguage>
 ) {
-    fun findPlaceLanguage(language: Language): PlaceLanguage? {
-        return languageContent.firstOrNull { placeLanguage ->
+    fun findPlaceLanguage(language: Language): PlaceLanguage {
+        return languageContent.first { placeLanguage ->
             placeLanguage.language == language.name
         }
     }

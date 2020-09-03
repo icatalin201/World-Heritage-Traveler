@@ -125,7 +125,7 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
         mBinding.placeLanguage = place.findPlaceLanguage(language)
         val latLng = LatLng(place.latitude, place.longitude)
         mMap.addMarker(
-            MarkerOptions().position(latLng).title(place.findPlaceLanguage(Language.EN)?.title)
+            MarkerOptions().position(latLng).title(place.findPlaceLanguage(Language.EN).title)
         )
         val cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 7.0f)
         mMap.animateCamera(cameraUpdate)

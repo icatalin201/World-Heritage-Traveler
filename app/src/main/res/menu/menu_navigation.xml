@@ -4,9 +4,11 @@
     <group android:id="@+id/primary">
         <item
             android:id="@+id/activity_about"
+            android:icon="@drawable/ic_baseline_info_24"
             android:title="@string/about" />
         <item
             android:id="@+id/activity_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/settings" />
     </group>
 

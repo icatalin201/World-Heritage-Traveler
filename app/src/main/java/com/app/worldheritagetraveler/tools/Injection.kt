@@ -5,9 +5,11 @@ import com.app.worldheritagetraveler.data.PlaceRepository
 import com.app.worldheritagetraveler.data.database.PlaceDao
 import com.app.worldheritagetraveler.data.database.WorldHeritageDatabase
 import com.app.worldheritagetraveler.ui.location.LocationViewModel
+import com.app.worldheritagetraveler.ui.main.MainViewModel
 import com.app.worldheritagetraveler.ui.map.MapViewModel
 import com.app.worldheritagetraveler.ui.place.PlaceViewModel
 import com.app.worldheritagetraveler.ui.places.PlacesViewModel
+import com.app.worldheritagetraveler.ui.splash.SplashViewModel
 
 /**
 World Heritage Traveler
@@ -20,14 +22,14 @@ object Injection {
         return ViewModelFactory(viewModels)
     }
 
+    fun providePlaceRepository(context: Context): PlaceRepository {
+        val dao = providePlaceDao(context)
+        return PlaceRepository.getInstance(dao)
+    }
+
     private fun providePlaceDao(context: Context): PlaceDao {
         val database = WorldHeritageDatabase.getInstance(context)
         return database.siteDao()
-    }
-
-    private fun providePlaceRepository(context: Context): PlaceRepository {
-        val dao = providePlaceDao(context)
-        return PlaceRepository.getInstance(dao)
     }
 
     private fun provideViewModelsList(context: Context): List<Factorizable> {
@@ -36,7 +38,9 @@ object Injection {
             PlacesViewModel(repo),
             LocationViewModel(repo),
             MapViewModel(repo),
-            PlaceViewModel(repo)
+            PlaceViewModel(repo),
+            MainViewModel(repo),
+            SplashViewModel(context)
         )
     }
 

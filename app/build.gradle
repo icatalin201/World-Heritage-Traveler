@@ -57,6 +57,9 @@ dependencies {
     def junit_version = '4.13'
     def ext_junit_version = '1.1.2'
     def espress_version = '3.3.0'
+    def google_maps_utils_version = '2.0.3'
+    def google_maps_utils_ktx_version = '1.7.0'
+    def worker_version = '2.4.0'
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -77,12 +80,15 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:$arch_version"
     implementation "androidx.lifecycle:lifecycle-livedata:$arch_version"
     implementation "androidx.preference:preference:$androidx_preference_version"
+    implementation "androidx.work:work-runtime:$worker_version"
 
     implementation "com.google.android.material:material:$google_material_version"
     implementation "com.squareup.picasso:picasso:$picasso_version"
     implementation "com.google.code.gson:gson:$gson_version"
     implementation "com.google.android.gms:play-services-location:$play_services_verion"
     implementation "com.google.android.gms:play-services-maps:$play_services_verion"
+    implementation "com.google.maps.android:android-maps-utils:$google_maps_utils_version"
+    implementation "com.google.maps.android:maps-utils-ktx:$google_maps_utils_ktx_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"

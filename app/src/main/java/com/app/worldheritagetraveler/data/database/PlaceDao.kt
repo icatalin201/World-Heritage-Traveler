@@ -21,6 +21,9 @@ interface PlaceDao {
     @RawQuery(observedEntities = [Place::class])
     fun getAll(query: SupportSQLiteQuery): LiveData<List<Place>>
 
+    @Query("select * from places order by RANDOM() LIMIT 1")
+    fun getRandom(): LiveData<Place>
+
     @Query(
         "select * from places where " +
                 "latitude >= :latitude1 and " +
@@ -42,6 +45,9 @@ interface PlaceDao {
     suspend fun toggleVisited(id: Int)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(place: Place)
+    fun insert(place: Place)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(place: Array<Place>)
 
 }

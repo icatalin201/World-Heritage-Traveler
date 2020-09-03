@@ -33,4 +33,6 @@
     <string name="language_chinese">Chinois</string>
     <string name="language_japanese">Japonais</string>
     <string name="language_dutch">Néerlandais</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="close">Proche</string>
 </resources>

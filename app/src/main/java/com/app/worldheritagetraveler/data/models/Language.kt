@@ -10,6 +10,7 @@ enum class Language {
     FR,
     AR,
     ES,
+    RU,
     ZH,
     JA,
     NL;

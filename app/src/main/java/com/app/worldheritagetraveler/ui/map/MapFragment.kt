@@ -12,6 +12,7 @@ import androidx.lifecycle.observe
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
+import com.app.worldheritagetraveler.data.models.PlaceMarker
 import com.app.worldheritagetraveler.databinding.FragmentMapBinding
 import com.app.worldheritagetraveler.tools.Injection
 import com.app.worldheritagetraveler.tools.LanguageTool
@@ -21,20 +22,18 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.maps.android.clustering.ClusterManager
 
 
 /**
 World Heritage Traveler
 Created by Catalin on 8/27/2020
  **/
-class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener,
-    GoogleMap.OnInfoWindowClickListener {
+class MapFragment : Fragment(), OnMapReadyCallback {
 
-    private lateinit var mMap: GoogleMap
     private lateinit var mFactory: ViewModelFactory
     private lateinit var mBinding: FragmentMapBinding
+    private lateinit var mClusterManager: ClusterManager<PlaceMarker>
     private val mViewModel: MapViewModel by viewModels { mFactory }
 
     override fun onCreateView(
@@ -54,37 +53,39 @@ class MapFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMarkerClickListe
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        this.mMap = googleMap
-        googleMap.setOnMarkerClickListener(this)
-        googleMap.setOnInfoWindowClickListener(this)
+        mClusterManager = ClusterManager(requireContext(), googleMap)
+        googleMap.setOnInfoWindowClickListener(mClusterManager)
+        googleMap.setOnCameraIdleListener(mClusterManager)
+        googleMap.setOnMarkerClickListener(mClusterManager)
+        mClusterManager.setOnClusterItemInfoWindowClickListener { onInfoWindowClick(it) }
         googleMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
         mViewModel.placesList.observe(
             viewLifecycleOwner,
-            { placesList -> setupMarkers(googleMap, placesList) })
+            { placesList -> setupMarkers(placesList) })
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-        return false
-    }
-
-    override fun onInfoWindowClick(marker: Marker) {
+    private fun onInfoWindowClick(placeMarker: PlaceMarker) {
         val intent = Intent(requireContext(), PlaceActivity::class.java)
-        intent.putExtra(PlaceActivity.PLACE, marker.tag.toString().toInt())
+        intent.putExtra(PlaceActivity.PLACE, placeMarker.getId())
         startActivity(intent)
     }
 
-    private fun setupMarkers(googleMap: GoogleMap, placesList: List<Place>) {
-        placesList.listIterator().forEach { place ->
+    private fun setupMarkers(placesList: List<Place>) {
+        placesList.forEach {
             var language = LanguageTool.getLanguage(requireContext())
             if (language == Language.DEFAULT) {
                 language = Language.EN
             }
-            val marker = MarkerOptions()
-                .position(LatLng(place.latitude, place.longitude))
-                .title(place.findPlaceLanguage(language)?.title)
-            googleMap.addMarker(marker).tag = place.id
+            val title = it.findPlaceLanguage(language).title
+            val placeMarker = PlaceMarker(
+                LatLng(it.latitude, it.longitude),
+                title,
+                it.country,
+                it.id
+            )
+            mClusterManager.addItem(placeMarker)
         }
-
+        mClusterManager.cluster()
     }
 
 }

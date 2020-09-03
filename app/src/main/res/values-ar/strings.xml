@@ -33,4 +33,6 @@
     <string name="language_chinese">صينى</string>
     <string name="language_japanese">اليابانية</string>
     <string name="language_dutch">هولندي</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="close">اغلاق</string>
 </resources>

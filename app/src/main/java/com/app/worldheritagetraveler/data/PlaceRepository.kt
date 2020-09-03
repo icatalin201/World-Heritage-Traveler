@@ -28,6 +28,10 @@ class PlaceRepository(private val placeDao: PlaceDao) {
 
     val places: LiveData<List<Place>> = placeDao.getAll()
 
+    fun insert(placeList: Array<Place>) {
+        placeDao.insert(placeList)
+    }
+
     suspend fun toggleFavorite(place: Place) {
         toggleFavorite(place.id)
     }
@@ -66,5 +70,9 @@ class PlaceRepository(private val placeDao: PlaceDao) {
         longitude2: Double
     ): LiveData<List<Place>> {
         return placeDao.getAllByDistance(latitude1, latitude2, longitude1, longitude2)
+    }
+
+    fun getRandom(): LiveData<Place> {
+        return placeDao.getRandom()
     }
 }

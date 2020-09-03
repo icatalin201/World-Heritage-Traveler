@@ -64,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:fitsSystemWindows="true"
             app:headerLayout="@layout/layout_header_navigation"
             app:itemTextColor="@android:color/white"
             app:menu="@menu/menu_navigation" />
