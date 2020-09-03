@@ -18,7 +18,7 @@ class PlaceViewModel(private val placeRepository: PlaceRepository) : ViewModel()
     val place: MediatorLiveData<Place> = MediatorLiveData()
 
     fun getById(id: Int) {
-        place.addSource(placeRepository.getById(id)) { place -> this.place.value = place }
+        place.addSource(placeRepository.getById(id)) { this.place.value = it }
     }
 
     fun toggleFavorite(id: Int) {
