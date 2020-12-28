@@ -36,4 +36,5 @@
     <string name="privacy_policy">Política de privacidad</string>
     <string name="close">Cerca</string>
     <string name="language_russian">Ruso</string>
+    <string name="places_in_the_same_country">Lugares en el mismo país</string>
 </resources>

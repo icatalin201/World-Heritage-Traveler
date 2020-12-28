@@ -15,6 +15,174 @@
     <string name="place_removed_from_favorites">Place removed from favorites</string>
     <string name="place_added_to_visited">Place added to visited list</string>
     <string name="place_removed_from_visited">Place removed from visited list</string>
+    <string name="places_in_the_same_country">Places in the same country</string>
+    <string name="country_ecuador" translatable="false">Ecuador</string>
+    <string name="country_germany" translatable="false">Germany</string>
+    <string name="country_canada" translatable="false">Canada</string>
+    <string name="country_tunisia" translatable="false">Tunisia</string>
+    <string name="country_ethiopia" translatable="false">Ethiopia</string>
+    <string name="country_syria" translatable="false">Syrian Arab Republic</string>
+    <string name="country_senegal" translatable="false">Senegal</string>
+    <string name="country_usa" translatable="false">United States of America</string>
+    <string name="country_poland" translatable="false">Poland</string>
+    <string name="country_belarus" translatable="false">Belarus</string>
+    <string name="country_ghana" translatable="false">Ghana</string>
+    <string name="country_tanzania" translatable="false">United Republic of Tanzania</string>
+    <string name="country_bulgaria" translatable="false">Bulgaria</string>
+    <string name="country_norway" translatable="false">Norway</string>
+    <string name="country_congo" translatable="false">Democratic Republic of the Congo</string>
+    <string name="country_guatemala" translatable="false">Guatemala</string>
+    <string name="country_cyprus" translatable="false">Cyprus</string>
+    <string name="country_france" translatable="false">France</string>
+    <string name="country_egypt" translatable="false">Egypt</string>
+    <string name="country_italy" translatable="false">Italy</string>
+    <string name="country_croatia" translatable="false">Croatia</string>
+    <string name="country_serbia" translatable="false">Serbia</string>
+    <string name="country_albania" translatable="false">Albania</string>
+    <string name="country_north_macedonia" translatable="false">North Macedonia</string>
+    <string name="country_montenegro" translatable="false">Montenegro</string>
+    <string name="country_algeria" translatable="false">Algeria</string>
+    <string name="country_iran" translatable="false">Iran</string>
+    <string name="country_mali" translatable="false">Mali</string>
+    <string name="country_nepal" translatable="false">Nepal</string>
+    <string name="country_brazil" translatable="false">Brazil</string>
+    <string name="country_honduras" translatable="false">Honduras</string>
+    <string name="country_malta" translatable="false">Malta</string>
+    <string name="country_panama" translatable="false">Panama</string>
+    <string name="country_pakistan" translatable="false">Pakistan</string>
+    <string name="country_argentina" translatable="false">Argentina</string>
+    <string name="country_australia" translatable="false">Australia</string>
+    <string name="country_jerusalem" translatable="false">Jerusalem</string>
+    <string name="country_cote_ivoire" translatable="false">Côte d\'Ivoire</string>
+    <string name="country_guinea" translatable="false">Guinea</string>
+    <string name="country_morocco" translatable="false">Morocco</string>
+    <string name="country_haiti" translatable="false">Haiti</string>
+    <string name="country_libya" translatable="false">Libya</string>
+    <string name="country_seychelles" translatable="false">Seychelles</string>
+    <string name="country_yemen" translatable="false">Yemen</string>
+    <string name="country_sri_lanka" translatable="false">Sri Lanka</string>
+    <string name="country_cuba" translatable="false">Cuba</string>
+    <string name="country_costa_rica" translatable="false">Costa Rica</string>
+    <string name="country_portugal" translatable="false">Portugal</string>
+    <string name="country_afghanistan" translatable="false">Afghanistan</string>
+    <string name="country_india" translatable="false">India</string>
+    <string name="country_sudan" translatable="false">Sudan</string>
+    <string name="country_switzerland" translatable="false">Switzerland</string>
+    <string name="country_peru" translatable="false">Peru</string>
+    <string name="country_iraq" translatable="false">Iraq</string>
+    <string name="country_colombia" translatable="false">Colombia</string>
+    <string name="country_holy_see" translatable="false">Holy See</string>
+    <string name="country_malawi" translatable="false">Malawi</string>
+    <string name="country_lebanon" translatable="false">Lebanon</string>
+    <string name="country_zimbabwe" translatable="false">Zimbabwe</string>
+    <string name="country_spain" translatable="false">Spain</string>
+    <string name="country_bangladesh" translatable="false">Bangladesh</string>
+    <string name="country_benin" translatable="false">Benin</string>
+    <string name="country_jordan" translatable="false">Jordan</string>
+    <string name="country_turkey" translatable="false">Turkey</string>
+    <string name="country_uk" translatable="false">United Kingdom</string>
+    <string name="country_slovenia" translatable="false">Slovenia</string>
+    <string name="country_greece" translatable="false">Greece</string>
+    <string name="country_hungary" translatable="false">Hungary</string>
+    <string name="country_cameroon" translatable="false">Cameroon</string>
+    <string name="country_mexico" translatable="false">Mexico</string>
+    <string name="country_bolivia" translatable="false">Bolivia</string>
+    <string name="country_new_zealand" translatable="false">New Zealand</string>
+    <string name="country_oman" translatable="false">Oman</string>
+    <string name="country_china" translatable="false">China</string>
+    <string name="country_car" translatable="false">Central African Republic</string>
+    <string name="country_lao" translatable="false">Lao People\'s Democratic Republic</string>
+    <string name="country_madagascar" translatable="false">Madagascar</string>
+    <string name="country_philippines" translatable="false">Philippines</string>
+    <string name="country_mauritania" translatable="false">Mauritania</string>
+    <string name="country_zambia" translatable="false">Zambia</string>
+    <string name="country_dominican" translatable="false">Dominican Republic</string>
+    <string name="country_ukraine" translatable="false">Ukraine</string>
+    <string name="country_russia" translatable="false">Russian Federation</string>
+    <string name="country_lithuania" translatable="false">Lithuania</string>
+    <string name="country_uzbekistan" translatable="false">Uzbekistan</string>
+    <string name="country_sweden" translatable="false">Sweden</string>
+    <string name="country_niger" translatable="false">Niger</string>
+    <string name="country_thailand" translatable="false">Thailand</string>
+    <string name="country_finland" translatable="false">Finland</string>
+    <string name="country_romania" translatable="false">Romania</string>
+    <string name="country_indonesia" translatable="false">Indonesia</string>
+    <string name="country_mozambique" translatable="false">Mozambique</string>
+    <string name="country_nicaragua" translatable="false">Nicaragua</string>
+    <string name="country_czechia" translatable="false">Czechia</string>
+    <string name="country_slovakia" translatable="false">Slovakia</string>
+    <string name="country_paraguay" translatable="false">Paraguay</string>
+    <string name="country_venezuela" translatable="false">Venezuela</string>
+    <string name="country_ireland" translatable="false">Ireland</string>
+    <string name="country_japan" translatable="false">Japan</string>
+    <string name="country_cambodia" translatable="false">Cambodia</string>
+    <string name="country_vietnam" translatable="false">Viet Nam</string>
+    <string name="country_salvador" translatable="false">El Salvador</string>
+    <string name="country_uganda" translatable="false">Uganda</string>
+    <string name="country_denmark" translatable="false">Denmark</string>
+    <string name="country_luxembourg" translatable="false">Luxembourg</string>
+    <string name="country_georgia" translatable="false">Georgia</string>
+    <string name="country_chile" translatable="false">Chile</string>
+    <string name="country_korea" translatable="false">Republic of Korea</string>
+    <string name="country_netherlands" translatable="false">Netherlands</string>
+    <string name="country_uruguay" translatable="false">Uruguay</string>
+    <string name="country_burkina_faso" translatable="false">Burkina Faso</string>
+    <string name="country_gambia" translatable="false">Gambia</string>
+    <string name="country_belize" translatable="false">Belize</string>
+    <string name="country_mongolia" translatable="false">Mongolia</string>
+    <string name="country_austria" translatable="false">Austria</string>
+    <string name="country_armenia" translatable="false">Armenia</string>
+    <string name="country_kenya" translatable="false">Kenya</string>
+    <string name="country_dominica" translatable="false">Dominica</string>
+    <string name="country_estonia" translatable="false">Estonia</string>
+    <string name="country_latvia" translatable="false">Latvia</string>
+    <string name="country_solomon" translatable="false">Solomon Islands</string>
+    <string name="country_belgium" translatable="false">Belgium</string>
+    <string name="country_turkmenistan" translatable="false">Turkeminstan</string>
+    <string name="country_papua" translatable="false">Papua New Guinea</string>
+    <string name="country_saint_kitts" translatable="false">Saint Kitts and Nevis</string>
+    <string name="country_south_africa" translatable="false">South Africa</string>
+    <string name="country_nigeria" translatable="false">Nigeria</string>
+    <string name="country_suriname" translatable="false">Suriname</string>
+    <string name="country_bosnia" translatable="false">Bosnia and Herzegovina</string>
+    <string name="country_azerbaijan" translatable="false">Azerbaijan</string>
+    <string name="country_lesotho" translatable="false">Lesotho</string>
+    <string name="country_malaysia" translatable="false">Malaysia</string>
+    <string name="country_botswana" translatable="false">Botswana</string>
+    <string name="country_israel" translatable="false">Israel</string>
+    <string name="country_democratic_korea" translatable="false">Democratic People\'s Republic of Korea</string>
+    <string name="country_kazakhstan" translatable="false">Kazakhstan</string>
+    <string name="country_togo" translatable="false">Togo</string>
+    <string name="country_tajikistan" translatable="false">Tajikistan</string>
+    <string name="country_gabon" translatable="false">Gabon</string>
+    <string name="country_iceland" translatable="false">Iceland</string>
+    <string name="country_andorra" translatable="false">Andorra</string>
+    <string name="country_saint_lucia" translatable="false">Saint Lucia</string>
+    <string name="country_moldova" translatable="false">Republic of Moldova</string>
+    <string name="country_bahrain" translatable="false">Bahrain</string>
+    <string name="country_mauritius" translatable="false">Mauritius</string>
+    <string name="country_kyrgyzstan" translatable="false">Kyrgyzstan</string>
+    <string name="country_san_marino" translatable="false">San Marino</string>
+    <string name="country_namibia" translatable="false">Namibia</string>
+    <string name="country_vanuatu" translatable="false">Vanuatu</string>
+    <string name="country_saudi_arabia" translatable="false">Saudi Arabia</string>
+    <string name="country_cabo_verde" translatable="false">Cabo Verde</string>
+    <string name="country_kiribati" translatable="false">Kiribati</string>
+    <string name="country_marshall" translatable="false">Marshall Islands</string>
+    <string name="country_uae" translatable="false">United Arab Emirates</string>
+    <string name="country_jamaica" translatable="false">Jamaica</string>
+    <string name="country_barbados" translatable="false">Barbados</string>
+    <string name="country_palau" translatable="false">Palau</string>
+    <string name="country_fiji" translatable="false">Fiji</string>
+    <string name="country_chad" translatable="false">Chad</string>
+    <string name="country_quatar" translatable="false">Qatar</string>
+    <string name="country_palestine" translatable="false">Palestine</string>
+    <string name="country_myanmar" translatable="false">Myanmar</string>
+    <string name="country_singapore" translatable="false">Singapore</string>
+    <string name="country_antigua_barbuda" translatable="false">Antigua and Barbuda</string>
+    <string name="country_micronesia" translatable="false">Micronesia</string>
+    <string name="country_angola" translatable="false">Angola</string>
+    <string name="country_eritrea" translatable="false">Eritrea</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="close">Close</string>
     <string name="filter">Filter</string>
@@ -72,5 +240,174 @@
         <item>ZH</item>
         <item>JA</item>
         <item>NL</item>
+    </string-array>
+    <string-array name="countries">
+        <item>-Country-</item>
+        <item>@string/country_afghanistan</item>
+        <item>@string/country_albania</item>
+        <item>@string/country_algeria</item>
+        <item>@string/country_andorra</item>
+        <item>@string/country_angola</item>
+        <item>@string/country_antigua_barbuda</item>
+        <item>@string/country_argentina</item>
+        <item>@string/country_armenia</item>
+        <item>@string/country_australia</item>
+        <item>@string/country_austria</item>
+        <item>@string/country_azerbaijan</item>
+        <item>@string/country_bahrain</item>
+        <item>@string/country_bangladesh</item>
+        <item>@string/country_barbados</item>
+        <item>@string/country_belarus</item>
+        <item>@string/country_belgium</item>
+        <item>@string/country_belize</item>
+        <item>@string/country_benin</item>
+        <item>@string/country_bolivia</item>
+        <item>@string/country_bosnia</item>
+        <item>@string/country_botswana</item>
+        <item>@string/country_brazil</item>
+        <item>@string/country_bulgaria</item>
+        <item>@string/country_burkina_faso</item>
+        <item>@string/country_cabo_verde</item>
+        <item>@string/country_cambodia</item>
+        <item>@string/country_cameroon</item>
+        <item>@string/country_canada</item>
+        <item>@string/country_car</item>
+        <item>@string/country_chad</item>
+        <item>@string/country_chile</item>
+        <item>@string/country_china</item>
+        <item>@string/country_colombia</item>
+        <item>@string/country_congo</item>
+        <item>@string/country_costa_rica</item>
+        <item>@string/country_cote_ivoire</item>
+        <item>@string/country_croatia</item>
+        <item>@string/country_cuba</item>
+        <item>@string/country_cyprus</item>
+        <item>@string/country_czechia</item>
+        <item>@string/country_democratic_korea</item>
+        <item>@string/country_denmark</item>
+        <item>@string/country_dominica</item>
+        <item>@string/country_dominican</item>
+        <item>@string/country_ecuador</item>
+        <item>@string/country_egypt</item>
+        <item>@string/country_eritrea</item>
+        <item>@string/country_estonia</item>
+        <item>@string/country_ethiopia</item>
+        <item>@string/country_fiji</item>
+        <item>@string/country_finland</item>
+        <item>@string/country_france</item>
+        <item>@string/country_gabon</item>
+        <item>@string/country_gambia</item>
+        <item>@string/country_georgia</item>
+        <item>@string/country_germany</item>
+        <item>@string/country_ghana</item>
+        <item>@string/country_greece</item>
+        <item>@string/country_guatemala</item>
+        <item>@string/country_guinea</item>
+        <item>@string/country_haiti</item>
+        <item>@string/country_holy_see</item>
+        <item>@string/country_honduras</item>
+        <item>@string/country_hungary</item>
+        <item>@string/country_iceland</item>
+        <item>@string/country_india</item>
+        <item>@string/country_indonesia</item>
+        <item>@string/country_iran</item>
+        <item>@string/country_iraq</item>
+        <item>@string/country_ireland</item>
+        <item>@string/country_israel</item>
+        <item>@string/country_italy</item>
+        <item>@string/country_jamaica</item>
+        <item>@string/country_japan</item>
+        <item>@string/country_jerusalem</item>
+        <item>@string/country_jordan</item>
+        <item>@string/country_kazakhstan</item>
+        <item>@string/country_kenya</item>
+        <item>@string/country_kiribati</item>
+        <item>@string/country_korea</item>
+        <item>@string/country_kyrgyzstan</item>
+        <item>@string/country_lao</item>
+        <item>@string/country_latvia</item>
+        <item>@string/country_lebanon</item>
+        <item>@string/country_lesotho</item>
+        <item>@string/country_libya</item>
+        <item>@string/country_lithuania</item>
+        <item>@string/country_luxembourg</item>
+        <item>@string/country_madagascar</item>
+        <item>@string/country_malawi</item>
+        <item>@string/country_malaysia</item>
+        <item>@string/country_mali</item>
+        <item>@string/country_malta</item>
+        <item>@string/country_marshall</item>
+        <item>@string/country_mauritania</item>
+        <item>@string/country_mauritius</item>
+        <item>@string/country_mexico</item>
+        <item>@string/country_moldova</item>
+        <item>@string/country_mongolia</item>
+        <item>@string/country_montenegro</item>
+        <item>@string/country_morocco</item>
+        <item>@string/country_mozambique</item>
+        <item>@string/country_myanmar</item>
+        <item>@string/country_namibia</item>
+        <item>@string/country_nepal</item>
+        <item>@string/country_netherlands</item>
+        <item>@string/country_new_zealand</item>
+        <item>@string/country_nicaragua</item>
+        <item>@string/country_niger</item>
+        <item>@string/country_nigeria</item>
+        <item>@string/country_north_macedonia</item>
+        <item>@string/country_norway</item>
+        <item>@string/country_oman</item>
+        <item>@string/country_pakistan</item>
+        <item>@string/country_palau</item>
+        <item>@string/country_palestine</item>
+        <item>@string/country_panama</item>
+        <item>@string/country_papua</item>
+        <item>@string/country_paraguay</item>
+        <item>@string/country_peru</item>
+        <item>@string/country_philippines</item>
+        <item>@string/country_poland</item>
+        <item>@string/country_portugal</item>
+        <item>@string/country_quatar</item>
+        <item>@string/country_romania</item>
+        <item>@string/country_russia</item>
+        <item>@string/country_saint_kitts</item>
+        <item>@string/country_saint_lucia</item>
+        <item>@string/country_salvador</item>
+        <item>@string/country_san_marino</item>
+        <item>@string/country_saudi_arabia</item>
+        <item>@string/country_senegal</item>
+        <item>@string/country_serbia</item>
+        <item>@string/country_seychelles</item>
+        <item>@string/country_singapore</item>
+        <item>@string/country_slovakia</item>
+        <item>@string/country_slovenia</item>
+        <item>@string/country_solomon</item>
+        <item>@string/country_south_africa</item>
+        <item>@string/country_spain</item>
+        <item>@string/country_sri_lanka</item>
+        <item>@string/country_sudan</item>
+        <item>@string/country_suriname</item>
+        <item>@string/country_sweden</item>
+        <item>@string/country_switzerland</item>
+        <item>@string/country_syria</item>
+        <item>@string/country_tajikistan</item>
+        <item>@string/country_tanzania</item>
+        <item>@string/country_thailand</item>
+        <item>@string/country_tunisia</item>
+        <item>@string/country_togo</item>
+        <item>@string/country_turkey</item>
+        <item>@string/country_turkmenistan</item>
+        <item>@string/country_uae</item>
+        <item>@string/country_uganda</item>
+        <item>@string/country_uk</item>
+        <item>@string/country_ukraine</item>
+        <item>@string/country_uruguay</item>
+        <item>@string/country_usa</item>
+        <item>@string/country_uzbekistan</item>
+        <item>@string/country_vanuatu</item>
+        <item>@string/country_venezuela</item>
+        <item>@string/country_vietnam</item>
+        <item>@string/country_yemen</item>
+        <item>@string/country_zambia</item>
+        <item>@string/country_zimbabwe</item>
     </string-array>
 </resources>

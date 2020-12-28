@@ -4,9 +4,10 @@ import android.content.Context
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.app.worldheritagetraveler.R
+import com.app.worldheritagetraveler.data.PlaceRepository
 import com.app.worldheritagetraveler.data.models.Place
-import com.app.worldheritagetraveler.tools.Injection
 import com.google.gson.Gson
+import org.koin.java.KoinJavaComponent.get
 
 /**
 World Heritage Traveler
@@ -21,7 +22,7 @@ class PushDataWorker(
 ) {
 
     override fun doWork(): Result {
-        val repository = Injection.providePlaceRepository(context)
+        val repository: PlaceRepository = get(PlaceRepository::class.java)
         val json = readFromJsonAsset()
         val places = Gson().fromJson(json, Array<Place>::class.java)
         repository.insert(places)

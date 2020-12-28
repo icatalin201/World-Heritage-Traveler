@@ -13,19 +13,6 @@ Created by Catalin on 8/27/2020
  **/
 class PlaceRepository(private val placeDao: PlaceDao) {
 
-    companion object {
-        @Volatile
-        private var INSTANCE: PlaceRepository? = null
-
-        fun getInstance(placeDao: PlaceDao): PlaceRepository {
-            return INSTANCE ?: synchronized(this) {
-                val instance = PlaceRepository(placeDao)
-                INSTANCE = instance
-                instance
-            }
-        }
-    }
-
     val places: LiveData<List<Place>> = placeDao.getAll()
 
     fun insert(placeList: Array<Place>) {
@@ -46,6 +33,14 @@ class PlaceRepository(private val placeDao: PlaceDao) {
 
     suspend fun toggleVisited(id: Int) {
         placeDao.toggleVisited(id)
+    }
+
+    suspend fun getAllCountries(): List<String> {
+        return placeDao.getAllCountries()
+    }
+
+    fun getAllByCountry(country: String): LiveData<List<Place>> {
+        return placeDao.getAllByCountry("%$country%")
     }
 
     fun getById(id: Int): LiveData<Place> {

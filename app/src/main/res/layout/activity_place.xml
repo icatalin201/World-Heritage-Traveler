@@ -148,7 +148,20 @@
                     android:id="@+id/place_map"
                     android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp" />
+                    android:layout_height="250dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/place_other_places_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:text="@string/places_in_the_same_country" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/place_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/item_other_place_recycler" />
 
             </LinearLayout>
 

@@ -15,7 +15,7 @@ Created by Catalin on 8/27/2020
 @TypeConverters(Converters::class)
 abstract class WorldHeritageDatabase : RoomDatabase() {
 
-    abstract fun siteDao(): PlaceDao
+    abstract fun placeDao(): PlaceDao
 
     companion object {
 

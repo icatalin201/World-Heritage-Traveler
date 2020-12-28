@@ -6,17 +6,31 @@ Created by Catalin on 8/30/2020
  **/
 data class FilterOptions(
     var favorite: Boolean,
-    var visited: Boolean
+    var visited: Boolean,
+    var country: String
 ) {
     fun getValue(): String {
-        return if (favorite && !visited) {
-            "where favorite = 1"
-        } else if (!favorite && visited) {
-            "where visited = 1"
-        } else if (favorite && visited) {
-            "where favorite = 1 and visited = 1"
-        } else {
-            ""
-        }
+        val builder = StringBuilder()
+        builder.append("where ")
+        builder.append(
+            when (favorite) {
+                true -> "favorite = 1"
+                false -> "favorite in (0, 1)"
+            }
+        )
+        builder.append(" and ")
+        builder.append(
+            when (visited) {
+                true -> "visited = 1"
+                false -> "visited in (0, 1)"
+            }
+        )
+        builder.append(
+            when (country) {
+                "-Country-" -> ""
+                else -> " and country LIKE '%$country%'"
+            }
+        )
+        return builder.toString()
     }
 }

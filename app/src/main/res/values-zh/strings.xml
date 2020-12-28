@@ -36,4 +36,5 @@
     <string name="privacy_policy">隐私政策</string>
     <string name="close">关闭</string>
     <string name="language_russian">俄语</string>
+    <string name="places_in_the_same_country">同一国家/地区的地方</string>
 </resources>

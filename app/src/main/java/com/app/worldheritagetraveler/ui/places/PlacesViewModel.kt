@@ -6,16 +6,15 @@ import com.app.worldheritagetraveler.data.PlaceRepository
 import com.app.worldheritagetraveler.data.models.FilterOptions
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.data.models.SortOptions
-import com.app.worldheritagetraveler.tools.Factorizable
 
 /**
 World Heritage Traveler
 Created by Catalin on 8/27/2020
  **/
-class PlacesViewModel(private val placeRepository: PlaceRepository) : ViewModel(), Factorizable {
+class PlacesViewModel(private val placeRepository: PlaceRepository) : ViewModel() {
 
     val mPlaceList: MediatorLiveData<List<Place>> = MediatorLiveData()
-    var mFilterOptions = FilterOptions(favorite = false, visited = false)
+    var mFilterOptions = FilterOptions(favorite = false, visited = false, "-Country-")
     private var mSortOptions = SortOptions.DEFAULT
 
     init {

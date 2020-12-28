@@ -15,6 +15,9 @@ interface PlaceDao {
     @Query("select * from places")
     fun getAll(): LiveData<List<Place>>
 
+    @Query("select * from places where country LIKE :country")
+    fun getAllByCountry(country: String): LiveData<List<Place>>
+
     @Query("select * from places where id = :id")
     fun getById(id: Int): LiveData<Place>
 
@@ -43,6 +46,9 @@ interface PlaceDao {
 
     @Query("update places set visited = NOT visited where id = :id")
     suspend fun toggleVisited(id: Int)
+
+    @Query("select distinct country from places")
+    suspend fun getAllCountries(): List<String>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(place: Place)

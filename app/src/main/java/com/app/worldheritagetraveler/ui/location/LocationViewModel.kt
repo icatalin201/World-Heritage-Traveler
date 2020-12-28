@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.worldheritagetraveler.data.PlaceRepository
 import com.app.worldheritagetraveler.data.models.Place
-import com.app.worldheritagetraveler.tools.Factorizable
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +13,7 @@ import kotlinx.coroutines.launch
 World Heritage Traveler
 Created by Catalin on 8/28/2020
  **/
-class LocationViewModel(private val placeRepository: PlaceRepository) : ViewModel(), Factorizable {
+class LocationViewModel(private val placeRepository: PlaceRepository) : ViewModel() {
 
     val distances = arrayOf(100, 500, 1000)
     val placeList: MediatorLiveData<List<Place>> = MediatorLiveData()
@@ -62,7 +61,7 @@ class LocationViewModel(private val placeRepository: PlaceRepository) : ViewMode
     private fun getKilometersFromCoordinates(place: Place): Double {
         var x = (myPosition!!.latitude - place.latitude) * 110.574
         if (x < 0) {
-            x *= -1
+            x = x * -1
         }
         return x
     }

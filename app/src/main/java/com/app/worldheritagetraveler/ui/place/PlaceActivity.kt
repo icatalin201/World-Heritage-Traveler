@@ -1,18 +1,17 @@
 package com.app.worldheritagetraveler.ui.place
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.databinding.ActivityPlaceBinding
-import com.app.worldheritagetraveler.tools.Injection
 import com.app.worldheritagetraveler.tools.LanguageTool
-import com.app.worldheritagetraveler.tools.ViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -23,25 +22,27 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import org.koin.android.ext.android.inject
 
 
 /**
 World Heritage Traveler
 Created by catalin.matache on 8/29/2020
  */
-class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
+class PlaceActivity : AppCompatActivity(), OnMapReadyCallback, CountryPlaceListener {
 
     companion object {
         const val PLACE = "Place"
+        const val COUNTRY = "Country"
     }
 
     private lateinit var mMap: GoogleMap
-    private lateinit var mFactory: ViewModelFactory
     private lateinit var mBinding: ActivityPlaceBinding
+    private lateinit var mAdapter: CountryPlacesAdapter
     private var mPlaceId: Int = 0
     private var mIsFavorite = false
     private var mIsVisited = false
-    private val mViewModel: PlaceViewModel by viewModels { mFactory }
+    private val mViewModel: PlaceViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,12 +58,15 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
                             appBarLayout.totalScrollRange.toFloat()
             })
         title = ""
-        mFactory = Injection.provideViewModelFactory(this)
+        mAdapter = CountryPlacesAdapter(this, this)
+        mBinding.placeRecyclerView.adapter = mAdapter
+        mBinding.placeRecyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         mPlaceId = intent.getIntExtra(PLACE, 0)
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.place_map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        mViewModel.getById(mPlaceId)
+        mViewModel.getById(mPlaceId, intent.getStringExtra(COUNTRY))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -110,6 +114,14 @@ class PlaceActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap.uiSettings.isScrollGesturesEnabled = false
         this.mMap = googleMap
         mViewModel.place.observe(this, { place -> setupPlace(place) })
+        mViewModel.countryPlaces.observe(this, { mAdapter.submitList(it) })
+    }
+
+    override fun open(place: Place) {
+        val intent = Intent(this, PlaceActivity::class.java)
+        intent.putExtra(PLACE, place.id)
+        intent.putExtra(COUNTRY, place.country)
+        startActivity(intent)
     }
 
     private fun setupPlace(place: Place) {

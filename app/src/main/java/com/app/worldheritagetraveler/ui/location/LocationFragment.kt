@@ -10,19 +10,17 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.databinding.FragmentLocationBinding
-import com.app.worldheritagetraveler.tools.Injection
-import com.app.worldheritagetraveler.tools.ViewModelFactory
 import com.app.worldheritagetraveler.ui.place.PlaceActivity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
+import org.koin.android.ext.android.inject
 
 /**
 World Heritage Traveler
@@ -34,11 +32,10 @@ class LocationFragment : Fragment(), PlaceLocationListener {
         private const val REQUEST_LOCATION_PERMISSION_CODE = 11
     }
 
-    private lateinit var mFactory: ViewModelFactory
     private lateinit var mAdapter: PlacesLocationAdapter
     private lateinit var mFusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var mBinding: FragmentLocationBinding
-    private val mViewModel: LocationViewModel by viewModels { mFactory }
+    private val mViewModel: LocationViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +49,6 @@ class LocationFragment : Fragment(), PlaceLocationListener {
         setHasOptionsMenu(true)
         mFusedLocationProviderClient =
             LocationServices.getFusedLocationProviderClient(requireActivity())
-        mFactory = Injection.provideViewModelFactory(requireContext())
         mAdapter = PlacesLocationAdapter(this, requireContext())
         mBinding.locationRecyclerView.adapter = mAdapter
         mBinding.locationRecyclerView.adapter = mAdapter
@@ -63,7 +59,9 @@ class LocationFragment : Fragment(), PlaceLocationListener {
             mBinding.locationRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
         setupLocationListener()
-        mViewModel.placeList.observe(viewLifecycleOwner, { mAdapter.setPlaces(it) })
+        mViewModel.placeList.observe(
+            viewLifecycleOwner,
+            { mAdapter.submitList(it.toMutableList()) })
         return mBinding.root
     }
 
@@ -120,9 +118,11 @@ class LocationFragment : Fragment(), PlaceLocationListener {
         Snackbar.make(mBinding.locationCoordinatorLayout, message, Snackbar.LENGTH_SHORT).show()
     }
 
+
     override fun open(place: Place) {
         val intent = Intent(requireContext(), PlaceActivity::class.java)
         intent.putExtra(PlaceActivity.PLACE, place.id)
+        intent.putExtra(PlaceActivity.COUNTRY, place.country)
         startActivity(intent)
     }
 

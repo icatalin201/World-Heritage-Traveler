@@ -7,7 +7,7 @@ import androidx.preference.PreferenceManager
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
-import com.app.worldheritagetraveler.tools.Factorizable
+import org.koin.core.component.KoinApiExtension
 
 /**
 World Heritage Traveler
@@ -15,7 +15,7 @@ Created by Catalin on 9/2/2020
  **/
 class SplashViewModel(
     context: Context
-) : ViewModel(), Factorizable {
+) : ViewModel() {
 
     companion object {
         private const val IS_FIRST_TIME = "First.Time.Run"

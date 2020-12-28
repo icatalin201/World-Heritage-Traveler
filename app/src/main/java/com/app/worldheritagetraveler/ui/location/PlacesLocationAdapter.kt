@@ -5,12 +5,14 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.data.models.Language
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.databinding.ItemLocationPlaceRecyclerBinding
 import com.app.worldheritagetraveler.tools.LanguageTool
+import com.app.worldheritagetraveler.tools.PlaceItemCallback
 import com.squareup.picasso.Picasso
 
 /**
@@ -20,14 +22,27 @@ Created by Catalin on 8/30/2020
 class PlacesLocationAdapter(
     private val listener: PlaceLocationListener,
     private val context: Context
-) :
-    RecyclerView.Adapter<PlacesLocationAdapter.PlacesViewHolder>() {
+) : ListAdapter<Place, PlacesLocationAdapter.PlacesViewHolder>(PlaceItemCallback) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlacesViewHolder {
+        val binding: ItemLocationPlaceRecyclerBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.item_location_place_recycler,
+            parent,
+            false
+        )
+        return PlacesViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: PlacesViewHolder, position: Int) {
+        holder.render(position)
+    }
 
     inner class PlacesViewHolder(private val binding: ItemLocationPlaceRecyclerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun render(position: Int) {
-            val place = mPlaceList[position]
+            val place = getItem(position)
             binding.place = place
             var language = LanguageTool.getLanguage(context)
             if (language == Language.DEFAULT) {
@@ -73,30 +88,4 @@ class PlacesLocationAdapter(
         }
 
     }
-
-    private var mPlaceList = emptyList<Place>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlacesViewHolder {
-        val binding: ItemLocationPlaceRecyclerBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            R.layout.item_location_place_recycler,
-            parent,
-            false
-        )
-        return PlacesViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: PlacesViewHolder, position: Int) {
-        holder.render(position)
-    }
-
-    override fun getItemCount(): Int {
-        return mPlaceList.size
-    }
-
-    internal fun setPlaces(places: List<Place>) {
-        this.mPlaceList = places
-        notifyDataSetChanged()
-    }
-
 }

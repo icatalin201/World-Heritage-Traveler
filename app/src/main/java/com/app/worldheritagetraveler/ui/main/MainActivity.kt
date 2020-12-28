@@ -1,7 +1,6 @@
 package com.app.worldheritagetraveler.ui.main
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -10,11 +9,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.app.worldheritagetraveler.R
 import com.app.worldheritagetraveler.databinding.ActivityMainBinding
-import com.app.worldheritagetraveler.tools.Injection
 import com.app.worldheritagetraveler.tools.LanguageTool
-import com.app.worldheritagetraveler.tools.ViewModelFactory
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_header_navigation.view.*
+import org.koin.android.ext.android.inject
 
 /**
 World Heritage Traveler
@@ -24,14 +22,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mNavController: NavController
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var mFactory: ViewModelFactory
-    private val mViewModel: MainViewModel by viewModels { mFactory }
+    private val mViewModel: MainViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LanguageTool.refreshLanguage(this)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mFactory = Injection.provideViewModelFactory(this)
         setSupportActionBar(mBinding.mainToolbar)
         setupNavigation()
         mViewModel.place.observe(

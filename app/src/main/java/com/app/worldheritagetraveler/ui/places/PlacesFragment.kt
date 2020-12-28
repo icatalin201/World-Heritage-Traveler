@@ -6,7 +6,6 @@ import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.worldheritagetraveler.R
@@ -14,9 +13,8 @@ import com.app.worldheritagetraveler.data.models.FilterOptions
 import com.app.worldheritagetraveler.data.models.Place
 import com.app.worldheritagetraveler.data.models.SortOptions
 import com.app.worldheritagetraveler.databinding.FragmentPlacesBinding
-import com.app.worldheritagetraveler.tools.Injection
-import com.app.worldheritagetraveler.tools.ViewModelFactory
 import com.app.worldheritagetraveler.ui.place.PlaceActivity
+import org.koin.android.ext.android.inject
 
 /**
 World Heritage Traveler
@@ -24,10 +22,9 @@ Created by Catalin on 8/27/2020
  **/
 class PlacesFragment : Fragment(), PlaceActionListener {
 
-    private lateinit var mFactory: ViewModelFactory
     private lateinit var mAdapter: PlacesAdapter
     private lateinit var mBinding: FragmentPlacesBinding
-    private val mViewModel: PlacesViewModel by viewModels { mFactory }
+    private val mViewModel: PlacesViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +36,6 @@ class PlacesFragment : Fragment(), PlaceActionListener {
             container, false
         )
         setHasOptionsMenu(true)
-        mFactory = Injection.provideViewModelFactory(requireContext())
         mAdapter = PlacesAdapter(this, requireContext())
         mBinding.placesRecyclerView.adapter = mAdapter
         val isTablet = requireContext().resources.getBoolean(R.bool.is_tablet)
@@ -50,7 +46,7 @@ class PlacesFragment : Fragment(), PlaceActionListener {
         }
         mViewModel.mPlaceList.observe(
             viewLifecycleOwner,
-            { mAdapter.setPlaces(it) })
+            { mAdapter.submitList(it.toMutableList()) })
         return mBinding.root
     }
 
@@ -91,6 +87,7 @@ class PlacesFragment : Fragment(), PlaceActionListener {
     override fun open(place: Place) {
         val intent = Intent(requireContext(), PlaceActivity::class.java)
         intent.putExtra(PlaceActivity.PLACE, place.id)
+        intent.putExtra(PlaceActivity.COUNTRY, place.country)
         startActivity(intent)
     }
 

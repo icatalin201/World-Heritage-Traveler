@@ -1,10 +1,14 @@
 package com.app.worldheritagetraveler
 
 import android.app.Application
+import com.app.worldheritagetraveler.tools.KoinModule
 import com.app.worldheritagetraveler.tools.OkHttpTool.ignoreAllSSLErrors
 import com.squareup.picasso.OkHttp3Downloader
 import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
 
 /**
 World Heritage Traveler
@@ -15,6 +19,11 @@ class WorldHeritageTraveler : Application() {
     override fun onCreate() {
         super.onCreate()
         setupPicasso()
+        startKoin {
+            androidLogger()
+            androidContext(this@WorldHeritageTraveler)
+            modules(KoinModule.appModule)
+        }
     }
 
     private fun setupPicasso() {

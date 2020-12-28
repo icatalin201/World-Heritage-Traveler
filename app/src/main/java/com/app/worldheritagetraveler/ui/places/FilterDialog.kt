@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
@@ -26,12 +27,20 @@ class FilterDialog(
     }
 
     private lateinit var mBinding: DialogFilterBinding
+    private lateinit var countries: Array<String>
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         mBinding = DataBindingUtil.inflate(
             requireActivity().layoutInflater,
             R.layout.dialog_filter, null, false
         )
+        countries = requireContext().resources.getStringArray(R.array.countries)
+        val adapter = ArrayAdapter(
+            requireContext(),
+            R.layout.country_spinner_item, countries
+        )
+        mBinding.filterCountrySpinner.adapter = adapter
+        mBinding.filterCountrySpinner.setSelection(countries.indexOf(mFilterOptions.country))
         mBinding.filterFavoriteSwitch.isChecked = mFilterOptions.favorite
         mBinding.filterVisitedSwitch.isChecked = mFilterOptions.visited
         return AlertDialog.Builder(requireContext(), R.style.AppTheme_Dialog)
@@ -41,6 +50,8 @@ class FilterDialog(
                 (DialogInterface.OnClickListener { d, _ ->
                     mFilterOptions.favorite = mBinding.filterFavoriteSwitch.isChecked
                     mFilterOptions.visited = mBinding.filterVisitedSwitch.isChecked
+                    mFilterOptions.country =
+                        countries[mBinding.filterCountrySpinner.selectedItemPosition]
                     mListener.onApply(mFilterOptions)
                     d.dismiss()
                 })
